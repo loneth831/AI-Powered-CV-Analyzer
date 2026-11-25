@@ -27,6 +27,8 @@ backend/target/
 backend/.mvn/wrapper/maven-wrapper.jar
 backend/logs/
 backend/uploads/
+logs/
+uploads/
 backend/*.log
 backend/HELP.md
 

@@ -15,6 +15,8 @@ OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "nvidia/nemotron-3-nano-30b-a3b
 
 def scrub_cv(cv_json: dict) -> dict:
     """Removes sensitive Personally Identifiable Information (PII) before sending to external LLM APIs."""
+    if not cv_json:
+        return {}
     scrubbed = json.loads(json.dumps(cv_json))  # Deep copy
     
     # Remove Contact Block completely

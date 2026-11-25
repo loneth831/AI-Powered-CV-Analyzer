@@ -4,10 +4,12 @@ from sqlalchemy import create_engine, Column, Integer, String, Float, Text, Enum
 from sqlalchemy.orm import declarative_base, sessionmaker
 import enum
 
+import urllib.parse
+
 # Define Database URL directly or through env vars
 # Using the same database as the Java Spring Boot application (hotel_ai)
 DB_USER = os.getenv("DB_USER", "root")
-DB_PASSWORD = os.getenv("DB_PASSWORD", "2003")
+DB_PASSWORD = urllib.parse.quote_plus(os.getenv("DB_PASSWORD", "2003"))
 DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_PORT = os.getenv("DB_PORT", "3306")
 DB_NAME = os.getenv("DB_NAME", "aiml_project")
